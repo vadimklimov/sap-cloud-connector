@@ -1,4 +1,5 @@
-FROM rockylinux:9 as build
+# Build image
+FROM rockylinux:9 AS build
 
 ARG SCC_VERSION
 ARG JVM_VERSION
@@ -18,6 +19,7 @@ RUN mkdir jvm scc \
     && bsdtar -x -C scc -f sapcc-${SCC_VERSION}-linux-x64.tar.gz && rm -f $_
 
 
+# Deployment image
 FROM rockylinux:9-minimal
 
 RUN microdnf update -y \
