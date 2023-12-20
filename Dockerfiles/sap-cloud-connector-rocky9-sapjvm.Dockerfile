@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 # Build image
 FROM rockylinux:9 AS build
 

@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM cgr.dev/chainguard/wolfi-base
 
 ARG SCC_VERSION

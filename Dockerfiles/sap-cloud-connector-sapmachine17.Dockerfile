@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM sapmachine:17
 
 ARG SCC_VERSION
