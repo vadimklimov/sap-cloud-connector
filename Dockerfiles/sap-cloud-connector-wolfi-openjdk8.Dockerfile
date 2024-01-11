@@ -11,7 +11,8 @@ RUN apk update --quiet --no-cache \
 WORKDIR /var/downloads/scc
 
 RUN curl -fsSL -H "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt" \
-    https://tools.hana.ondemand.com/additional/sapcc-${SCC_VERSION}-linux-x64.tar.gz | tar -xz
+    https://tools.hana.ondemand.com/additional/sapcc-${SCC_VERSION}-linux-x64.tar.gz | tar -xz \
+    && mkdir log
 
 
 # Deployment image
@@ -23,8 +24,9 @@ RUN apk update --quiet --no-cache \
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 ENV PATH=$JAVA_HOME/bin:$PATH
 
+USER nonroot
 WORKDIR /opt/sap/scc
-COPY --from=build /var/downloads/scc .
+COPY --from=build --chown=nonroot:nonroot /var/downloads/scc .
 
 EXPOSE 8443
 VOLUME ["/opt/sap/scc/config", "/opt/sap/scc/config_master", "/opt/sap/scc/scc_config", "/opt/sap/scc/log"]
