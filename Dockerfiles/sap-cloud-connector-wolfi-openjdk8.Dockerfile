@@ -32,4 +32,4 @@ COPY --from=build --chown=nonroot:nonroot /var/downloads/scc .
 EXPOSE 8443
 VOLUME ["/opt/sap/scc/config", "/opt/sap/scc/config_master", "/opt/sap/scc/scc_config", "/opt/sap/scc/log"]
 
-ENTRYPOINT ["/bin/sh", "go.sh"]
+ENTRYPOINT ["/bin/ash", "go.sh"]
