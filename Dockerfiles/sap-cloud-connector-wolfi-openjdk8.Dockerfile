@@ -19,7 +19,8 @@ RUN curl -fsSL -H "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-lic
 FROM cgr.dev/chainguard/wolfi-base
 
 RUN apk update --quiet --no-cache \
-    && apk add --quiet --no-cache openjdk-8 procps
+    && apk add --quiet --no-cache openjdk-8 procps \
+    && apk del --quiet --purge apk-tools wolfi-base wolfi-keys
 
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 ENV PATH=$JAVA_HOME/bin:$PATH
