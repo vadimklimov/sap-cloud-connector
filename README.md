@@ -39,9 +39,9 @@ The driving force and purpose for composing a Dockerfile of SAP Cloud Connector 
 ```
 docker build \
     -f sap-cloud-connector-rocky9-sapjvm.Dockerfile \
-    -t sap-cloud-connector:2.16.0-rocky9-sapjvm8 \
-    --build-arg SCC_VERSION=2.16.0 \
-    --build-arg JVM_VERSION=8.1.095 \
+    -t sap-cloud-connector:2.17.0-rocky9-sapjvm8 \
+    --build-arg SCC_VERSION=2.17.0 \
+    --build-arg JVM_VERSION=8.1.099  \
     --platform linux/amd64 \
     .
 ```
@@ -49,8 +49,8 @@ docker build \
 ```
 docker build \
     -f sap-cloud-connector-wolfi-openjdk8.Dockerfile \
-    -t sap-cloud-connector:2.16.0-wolfi-openjdk8 \
-    --build-arg SCC_VERSION=2.16.0 \
+    -t sap-cloud-connector:2.17.0-wolfi-openjdk8 \
+    --build-arg SCC_VERSION=2.17.0 \
     --platform linux/amd64 \
     .
 ```
@@ -58,8 +58,8 @@ docker build \
 ```
 docker build \
     -f sap-cloud-connector-sapmachine17.Dockerfile \
-    -t sap-cloud-connector:2.16.0-sapmachine17 \
-    --build-arg SCC_VERSION=2.16.0 \
+    -t sap-cloud-connector:2.17.0-sapmachine17 \
+    --build-arg SCC_VERSION=2.17.0 \
     --platform linux/amd64 \
     .
 ```
@@ -79,7 +79,7 @@ docker run -d \
     -v scc_scc_config:/opt/sap/scc/scc_config \
     -v scc_logs:/opt/sap/scc/log \
     --platform linux/amd64 \
-    sap-cloud-connector:2.16.0-wolfi-openjdk8
+    sap-cloud-connector:2.17.0-wolfi-openjdk8
 ```
 
 2. After the container is started and is healthy, SAP Cloud Connector admin UI can be accessed at [https://localhost:8443](https://localhost:8443).
