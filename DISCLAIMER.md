@@ -1,1 +1,1 @@
-By building Docker images from Dockerfiles published in this repository, you hereby expressly acknowledge and agree to be bound by the terms of the [SAP Developer License Agreement](https://tools.hana.ondemand.com/developer-license-3_1.txt).
+By building Docker images from Dockerfiles published in this repository, you hereby expressly acknowledge and agree to be bound by the terms of the [SAP Developer License Agreement](https://tools.hana.ondemand.com/developer-license-3_2.txt).

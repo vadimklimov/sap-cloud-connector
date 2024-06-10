@@ -5,6 +5,7 @@ FROM rockylinux:9 AS build
 
 ARG SCC_VERSION
 ARG JVM_VERSION
+ARG EULA_COOKIE=eula_3_2_agreed=tools.hana.ondemand.com/developer-license-3_2.txt
 
 SHELL ["/bin/bash", "-c"]
 
@@ -15,7 +16,7 @@ RUN dnf update -y \
 WORKDIR /tmp/downloads
 
 RUN mkdir jvm scc \
-    && curl -fsSL --remote-name-all -H "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt" \
+    && curl -fsSL --remote-name-all -H "Cookie: ${EULA_COOKIE}" \
     https://tools.hana.ondemand.com/additional/{sapjvm-${JVM_VERSION}-linux-x64.zip,sapcc-${SCC_VERSION}-linux-x64.tar.gz} \
     && bsdtar -x -C jvm --strip-components 1 -f sapjvm-${JVM_VERSION}-linux-x64.zip && rm -f $_ \
     && bsdtar -x -C scc -f sapcc-${SCC_VERSION}-linux-x64.tar.gz && rm -f $_

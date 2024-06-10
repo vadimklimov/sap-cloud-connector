@@ -4,13 +4,14 @@
 FROM cgr.dev/chainguard/wolfi-base AS build
 
 ARG SCC_VERSION
+ARG EULA_COOKIE=eula_3_2_agreed=tools.hana.ondemand.com/developer-license-3_2.txt
 
 RUN apk update --quiet --no-cache \
     && apk add --quiet --no-cache curl
 
 WORKDIR /var/downloads/scc
 
-RUN curl -fsSL -H "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt" \
+RUN curl -fsSL -H "Cookie: ${EULA_COOKIE}" \
     https://tools.hana.ondemand.com/additional/sapcc-${SCC_VERSION}-linux-x64.tar.gz | tar -xz \
     && mkdir log
 
